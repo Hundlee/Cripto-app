@@ -20,7 +20,7 @@ const SideMenu = () => {
 
     return (
         <>
-            <SheetHeader className="p-5 ">
+            <SheetHeader className="p-5 border-b border-solid border-secondary ">
                 <SheetTitle>Menu</SheetTitle>
             </SheetHeader>
 

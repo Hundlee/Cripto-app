@@ -19,7 +19,7 @@ const Header = () => {
 
                     <Sheet>
                         <SheetTrigger asChild>
-                            <Button variant="ghost">
+                            <Button variant="ghost" size="icon">
                                 <MenuIcon />
                             </Button>
                         </SheetTrigger>

@@ -54,8 +54,15 @@ export const CryptoDataProvider = ({ children }: any) => {
             }
         };
 
-        fetchDolar();
-        fetchData();
+        const fetchDataAndDolar = () => {
+            fetchDolar();
+            fetchData();
+        };
+
+        fetchDataAndDolar();
+
+        const interval = setInterval(fetchDataAndDolar, 60000);
+        return () => clearInterval(interval);
     }, []);
 
     return (

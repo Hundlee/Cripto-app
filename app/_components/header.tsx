@@ -8,7 +8,7 @@ import { Card, CardContent } from "./ui/card";
 const Header = () => {
     return (
         <header>
-            <Card className="rounded-none border-t-0 border-x-0">
+            <Card className="rounded-none border-t-0 border-x-0 bg-secondary">
                 <CardContent className="p-5 justify-between flex flex-row items-center">
                     <Image
                         src={"/Bitcoin-icon.png"}

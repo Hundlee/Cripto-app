@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Button } from "../_components/ui/button";
 import { SearchIcon } from "lucide-react";
+import CardItem from "./_components/CardItem";
 
 export default async function Home() {
     const session = await getServerSession(authOptions);
@@ -33,17 +34,19 @@ export default async function Home() {
                 </div>
             </div>
 
-            <div className="px-5 mt-6">
+            <div className="px-5 mt-5">
                 <div className="flex items-center ">
                     <input
                         type="text"
                         className="w-full mr-2 h-[2.4rem] rounded-md"
                     />
-                    <Button variant="default" size="icon">
-                        <SearchIcon />
+                    <Button variant="default" type="submit">
+                        <SearchIcon size={20} />
                     </Button>
                 </div>
             </div>
+
+            <CardItem />
         </div>
     );
 }

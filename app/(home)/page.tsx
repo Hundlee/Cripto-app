@@ -5,7 +5,8 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Button } from "../_components/ui/button";
 import { SearchIcon } from "lucide-react";
-import CardItem from "./_components/CardItem";
+import CryptoCard from "./_components/CryptoCard";
+import CryptoRecommended from "./_components/CryptoRecommended";
 
 export default async function Home() {
     const session = await getServerSession(authOptions);
@@ -38,7 +39,7 @@ export default async function Home() {
                 <div className="flex items-center ">
                     <input
                         type="text"
-                        className="w-full mr-2 h-[2.4rem] rounded-md"
+                        className="w-full mr-2 h-[2.4rem] rounded-md bg-input"
                     />
                     <Button variant="default" type="submit">
                         <SearchIcon size={20} />
@@ -46,7 +47,30 @@ export default async function Home() {
                 </div>
             </div>
 
-            <CardItem />
+            <div className="pl-5 mt-6">
+                <div className="flex justify-between pr-5">
+                    <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">
+                        Criptomoedas
+                    </h2>
+                    <h3 className="text-xs mb-3 uppercase text-gray-400 font-bold">
+                        Ultima hora
+                    </h3>
+                </div>
+                <CryptoCard />
+            </div>
+
+            <div className="pl-5 mt-6">
+                <div className="flex justify-between pr-5">
+                    <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">
+                        Crescendo
+                    </h2>
+                    <h3 className="text-xs mb-3 uppercase text-gray-400 font-bold">
+                        Ultima hora
+                    </h3>
+                </div>
+
+                <CryptoRecommended />
+            </div>
         </div>
     );
 }

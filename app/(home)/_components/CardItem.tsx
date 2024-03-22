@@ -2,53 +2,11 @@
 
 import { Badge } from "@/app/_components/ui/badge";
 import { Card, CardContent, CardTitle } from "@/app/_components/ui/card";
-import { useEffect, useState } from "react";
+import { useCryptoData } from "@/app/_providers/CryptoProvider";
 
 const CardItem = () => {
-    const [cryptoData, setCryptoData] = useState<any[]>([]);
-    const [real, setReal] = useState<number>();
+    const { cryptoData, real } = useCryptoData();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("http://localhost:8080/", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                const json = await response.json();
-                setCryptoData(json.data);
-                console.log(json);
-            } catch (error) {
-                console.error("Erro:", error);
-            }
-        };
-
-        const fetchDolar = async () => {
-            try {
-                const response = await fetch(
-                    "https://economia.awesomeapi.com.br/last/USD-BRL",
-                    {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-
-                const json = await response.json();
-                setReal(json.USDBRL.ask);
-                console.log(json.USDBRL.ask);
-            } catch (error) {
-                console.error("Erro:", error);
-            }
-        };
-
-        fetchDolar();
-        fetchData();
-    }, []);
     return (
         <div className="px-5 mt-6">
             <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">

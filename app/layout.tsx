@@ -20,7 +20,7 @@ export default function RootLayout({
         <html lang="en">
             <AuthProvider>
                 <CryptoDataProvider>
-                    <body className={`${inter.className} dark`}>
+                    <body className={`${inter.className}`}>
                         <div className="flex-1">{children}</div>
                         <Footer />
                     </body>

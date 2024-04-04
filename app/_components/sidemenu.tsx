@@ -7,6 +7,7 @@ import { HomeIcon, LogInIcon, LogOutIcon, UserIcon } from "lucide-react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import ThemeToggle from "./themeToggle";
 
 const SideMenu = () => {
     const { data, status } = useSession();
@@ -35,13 +36,7 @@ const SideMenu = () => {
 
                         <h2>{data?.user?.name}</h2>
                     </div>
-                    <Button
-                        variant="secondary"
-                        onClick={handleLogoutClick}
-                        size="icon"
-                    >
-                        <LogOutIcon />
-                    </Button>
+                    <ThemeToggle />
                 </div>
             ) : (
                 <div className="flex flex-col gap-3 px-5 py-6">
@@ -49,10 +44,6 @@ const SideMenu = () => {
                         <UserIcon size={32} />
                         <h2 className="font-bold">Olá, faça seu login!</h2>
                     </div>
-                    <Button variant="secondary" onClick={handleLoginClick}>
-                        <LogInIcon className="mr-2" size={18} />
-                        Fazer login
-                    </Button>
                 </div>
             )}
 
@@ -62,6 +53,10 @@ const SideMenu = () => {
                         <HomeIcon className="mr-2" />
                         Inicio
                     </Link>
+                </Button>
+                <Button variant="secondary" onClick={handleLoginClick}>
+                    <LogOutIcon className="mr-2" size={18} />
+                    Sair
                 </Button>
             </div>
         </>

@@ -19,15 +19,21 @@ export default async function Home() {
             <div className="px-5 pt-5">
                 <div>
                     {session?.user ? (
-                        <h2 className="text-xl ">
-                            Olá{" "}
-                            <strong>{session.user.name?.split(" ")[0]}!</strong>
-                        </h2>
+                        <div className="flex flex-col">
+                            <h2 className="text-xl ">
+                                Olá{" "}
+                                <strong>
+                                    {session.user.name?.split(" ")[0]}!
+                                </strong>
+                            </h2>
+                            <h2 className="text-xl font-bold ">Tudo bem?</h2>
+                        </div>
                     ) : (
                         <h2 className="text-xl font-bold">
                             Olá, Faça seu login!
                         </h2>
                     )}
+
                     <p className="capitalize text-sm">
                         {format(new Date(), "EEEE',' d 'de' MMMM", {
                             locale: ptBR,
@@ -71,19 +77,6 @@ export default async function Home() {
                 </div>
 
                 <CryptoGrowing />
-            </div>
-
-            <div className="pl-5 mt-6">
-                <div className="flex justify-between pr-5">
-                    <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">
-                        Recomendadas
-                    </h2>
-                    <h3 className="text-xs mb-3 uppercase text-gray-400 font-bold">
-                        Ultimas 24 horas
-                    </h3>
-                </div>
-
-                <RecommendedCrypto />
             </div>
         </div>
     );
